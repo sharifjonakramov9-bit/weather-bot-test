@@ -27,7 +27,7 @@ def get_current_weather(city):
     get_current_wather_url = f"{WEATHER_URL}/current.json"
 
     payload = {
-        'key': 'c852ebca46f148469f3172212250707',
+        'key': 'cee5904a2758be014a16512c293688f6',
         'q': city
     }
     response = requests.get(get_current_wather_url, params=payload)
@@ -49,5 +49,3 @@ while True:
 
     time.sleep(3)
 
-
-# bu sizniki bunga teginmayman
