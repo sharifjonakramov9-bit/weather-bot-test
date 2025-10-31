@@ -2,7 +2,7 @@ import time
 import requests
 from config import TOKEN
 
-TG_BO_BASE_URL = 'https://api.telegram.org/bot{TOKEN}'
+TG_BO_BASE_URL = f'https://api.telegram.org/bot{TOKEN}'
 WEATHER_URL = 'http://api.weatherapi.com/v1'
 
 
@@ -14,6 +14,7 @@ def get_last_update():
 
     return data['result'][-1]
 
+
 def send_message(chat_id, text):
     send_message_url = f"{TG_BO_BASE_URL}/sendMessage"
 
@@ -23,15 +24,17 @@ def send_message(chat_id, text):
     }
     response = requests.get(send_message_url, params=payload)
 
+
 def get_current_weather(city):
     get_current_wather_url = f"{WEATHER_URL}/current.json"
 
     payload = {
-        'key': 'cee5904a2758be014a16512c293688f6',
+        'key': 'c852ebca46f148469f3172212250707',
         'q': city
     }
     response = requests.get(get_current_wather_url, params=payload)
 
+    print(response.json())
     data = response.json()
     return data['current']['feelslike_c']
 
